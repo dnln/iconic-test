@@ -2,6 +2,10 @@
 
 Technical test done for Iconic
 
+# Demo
+
+![Demo](https://github.com/dnln/iconic-test/blob/master/demo.gif?raw=true)
+
 # Challenge
 
 Implement a full stack signup/login system and components
