@@ -8,6 +8,7 @@ import { checkAuth } from "./middleware";
 
 const router = new Router();
 
+// test endpoint
 router.get("/", ctx => (ctx.status = 200));
 
 router.get("/user", checkAuth, getUser);

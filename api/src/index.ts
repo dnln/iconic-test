@@ -16,6 +16,8 @@ app.use(
 app.use(bodyParser());
 app.use(router.routes()).use(router.allowedMethods());
 
-const server = app.listen(3002, () => console.log("Server listening on 3002"));
+const server = app.listen(3002, () =>
+  console.log("Server listening on http://localhost:3002")
+);
 
 export default server;

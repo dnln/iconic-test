@@ -11,16 +11,15 @@ export function checkAuth(ctx: Koa.Context, next: Function) {
       return (ctx.status = 401);
     }
 
+    // get just the JWT from the Authorization header
     const token = ctx.request.headers.authorization.replace("Bearer ", "");
 
     if (!token) {
       return (ctx.status = 401);
     }
 
-    // TODO: fix JWT type
+    // TODO if more time: fix JWT type
     const verifiedToken: any = jwt.verify(token, config.auth.secret);
-
-    // TODO: check user ID exists on token
 
     ctx.state.user = {
       id: verifiedToken.userId
@@ -28,6 +27,8 @@ export function checkAuth(ctx: Koa.Context, next: Function) {
 
     return next();
   } catch (err) {
+    // jsonwebtoken throws an error if the token is invalid. return
+    // unauthorized rather than error if the signature is invalid.
     if (err.message === "invalid signature") {
       return (ctx.status = 401);
     }
