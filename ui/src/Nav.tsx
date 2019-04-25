@@ -1,12 +1,33 @@
-import React from "react";
-import Navbar from "react-bootstrap/Navbar";
+import React, { Component } from "react";
+import BSNavbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
+import styled from "styled-components";
+import { withRouter, RouteComponentProps } from "react-router";
 
-const Nav: React.FC = () => {
-  return (
-    <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="#home">iconic-login</Navbar.Brand>
-    </Navbar>
-  );
-};
+const Navbar = styled(BSNavbar)`
+  justify-content: space-between;
+`;
 
-export default Nav;
+class Nav extends Component<RouteComponentProps> {
+  logout(props: RouteComponentProps) {
+    localStorage.clear();
+    props.history.push("/login");
+  }
+
+  render() {
+    return (
+      <Navbar bg="dark" variant="dark">
+        <BSNavbar.Brand href="#home">iconic-login</BSNavbar.Brand>
+        <Button
+          onClick={() => this.logout(this.props)}
+          variant="outline-light"
+          size="sm"
+        >
+          Logout
+        </Button>
+      </Navbar>
+    );
+  }
+}
+
+export default withRouter(Nav);
