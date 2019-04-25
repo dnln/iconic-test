@@ -8,6 +8,7 @@
     "@types/node": "^11.13.7",
     "bcrypt": "^3.0.6",
     "dotenv": "^7.0.0",
+    "jest": "^24.7.1",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.16.5",
     "koa": "^2.7.0",
@@ -19,15 +20,33 @@
   },
   "scripts": {
     "start": "nodemon src/index.ts",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "test": "NODE_ENV=test jest --coverage --runInBand"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
+    "@types/jest": "^24.0.11",
     "@types/knex": "^0.16.1",
     "@types/koa": "^2.0.48",
     "@types/koa-bodyparser": "^4.2.2",
     "@types/koa-router": "^7.0.40",
     "@types/mysql": "^2.15.6",
-    "nodemon": "^1.18.11"
+    "@types/supertest": "^2.0.7",
+    "nodemon": "^1.18.11",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/*.spec.ts"
+    ]
   }
 }

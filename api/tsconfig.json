@@ -10,7 +10,8 @@
     "declaration": true,
     "sourceMap": true,
     "inlineSources": true,
-    "types": ["node"]
+    "types": ["node", "jest"],
+    "typeRoots": ["node_modules/@types", "types/"]
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "types/**/*.ts"]
 }
