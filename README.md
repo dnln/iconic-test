@@ -101,6 +101,7 @@ If I had more time there are a few things I'd have done:
 - Dockerise everything so it can easily be run
 - Lots of tidying up (some of the types could be better and bits of the code are very rushed)
 - Form validation
+- Merge SignUp and Login components in the UI as they're pretty much the same thing
 - Created a simple API client in the UI so that all requests to the API pass through a single function making it easier to change things like API endpoint details
 
 ### Note about the auth approach
