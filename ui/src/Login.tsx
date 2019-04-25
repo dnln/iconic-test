@@ -54,18 +54,13 @@ class Login extends Component<RouteComponentProps> {
                       }
                     );
 
-                    if (response.status === 401) {
-                      this.setState({ loginError: true });
-                    } else if (response.status === 200) {
+                    if (response.status === 200) {
                       this.setState({ loginError: false });
-
                       const body = await response.json();
-
                       localStorage.setItem("token", body.token);
-
                       this.props.history.push("/welcome");
                     } else {
-                      // somethign went wrong
+                      this.setState({ loginError: true });
                     }
 
                     setSubmitting(false);

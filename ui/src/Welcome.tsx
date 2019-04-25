@@ -18,10 +18,12 @@ class Welcome extends Component<RouteComponentProps> {
   async componentDidMount() {
     const token = localStorage.getItem("token");
 
+    // if the user has no token, they need to log in
     if (!token) {
       this.props.history.push("/login");
     }
 
+    // get user full name
     const response = await fetch("http://localhost:3002/user", {
       method: "GET",
       headers: {
